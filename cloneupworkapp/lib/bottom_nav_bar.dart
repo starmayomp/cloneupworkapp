@@ -32,20 +32,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _screens[selected],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
+        elevation: 0,
         currentIndex: selected,
         onTap: barnavigation,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Jobs'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Proposals'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Contracts'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Messages'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Alerts'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.edit_note_outlined), label: 'Proposals'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper), label: 'Contracts'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message_outlined), label: 'Messages'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_none_outlined), label: 'Alerts'),
         ],
       ),
     );
