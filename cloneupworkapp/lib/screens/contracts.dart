@@ -1,3 +1,4 @@
+import 'package:cloneupworkapp/widgets/contracts_tabbar_view/all_tab.dart';
 import 'package:flutter/material.dart';
 
 class Contracts extends StatelessWidget {
@@ -5,20 +6,27 @@ class Contracts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text(
-          'Contracts',
-          style: TextStyle(
-            fontSize: 16,
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          // title: const Text(
+          //   'Contracts',
+          //   style: TextStyle(
+          //     fontSize: 16,
+          //   ),
+          // ),
+          centerTitle: true,
+          leading: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/olusoji.png'),
+            ),
           ),
         ),
-        centerTitle: true,
-        leading: const Icon(Icons.abc),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+        body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
@@ -35,11 +43,22 @@ class Contracts extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 children: [
-                  const Text('Earning available now:'),
-                  const SizedBox(
-                    width: 10.0,
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Earning available now:',
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        '\$${1000000}',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green),
+                      ),
+                    ],
                   ),
-                  const Text('\$${0.00}'),
                   const SizedBox(
                     width: 10.0,
                   ),
@@ -47,20 +66,22 @@ class Contracts extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
-                      border: Border.all(),
+                      border: Border.all(color: Colors.grey),
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.all(2),
-                      child: Icon(Icons.more_horiz_sharp),
+                      padding: EdgeInsets.all(5),
+                      child: Icon(
+                        Icons.more_horiz_sharp,
+                        color: Colors.green,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
-            const Divider(),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
@@ -68,7 +89,7 @@ class Contracts extends StatelessWidget {
                 children: [
                   Text(
                     'Active contracts',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 50,
@@ -80,172 +101,61 @@ class Contracts extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: TextField(
                 decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    contentPadding: const EdgeInsets.all(1),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    hintText: 'Search contracts'),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: const BorderSide(color: Colors.grey),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: const BorderSide(color: Colors.grey),
+                  ),
+                  contentPadding: const EdgeInsets.all(0),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.black,
+                  ),
+                  hintText: 'Search contracts',
+                ),
               ),
             ),
             const SizedBox(
               height: 15.0,
             ),
-            Container(
-              height: 250,
-              width: double.infinity,
-              decoration: BoxDecoration(color: Colors.green[50]),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Flutter Dev',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.grey)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: Icon(
-                              (Icons.more_horiz),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Hired by Op Olusoji',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    const Text(
-                      'Op Olusoji',
-                      style: TextStyle(),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Row(
-                      children: [
-                        Text(
-                          'Active:',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          '0.00 hrs,',
-                          style: TextStyle(
-                              color: Colors.green, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          '\$${0.00}',
-                          style: TextStyle(
-                              color: Colors.green, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          'this week',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    const Text('\$${'15.00/hrs, 40 hrs weekly limit'}'),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const Text('Nov 8, 2023 - Present'),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.green[800],
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(4.0),
-                        child: Center(
-                          child: Text(
-                            'See timesheet',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green),
-                    borderRadius: BorderRadius.circular(50)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 8, 30, 8),
-                  child: Text(
-                    'View all contracts',
-                    style: TextStyle(color: Colors.green[800]),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Divider(),
-            const Divider(),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Direct contracts',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  TabBar(
+                    isScrollable: true,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorColor: Colors.green,
+                    splashBorderRadius: BorderRadius.circular(12),
+                    dividerHeight: 0,
+                    indicatorPadding: const EdgeInsets.all(10),
+                    labelColor: Colors.green,
+                    unselectedLabelColor: Colors.black,
+                    tabs: const [
+                      Tab(text: 'All'),
+                      Tab(text: 'Hourly(0)'),
+                      Tab(text: 'Active Milestones(0)'),
+                      Tab(text: 'Awaiting Milestones(0)'),
+                      Tab(text: 'Payment Requests(0)'),
+                    ],
                   ),
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(height: 10),
+                  const Expanded(
+                    child: TabBarView(
+                      children: [
+                        AllTab(),
+                        Center(child: Text('Tab 2 Content')),
+                        Center(child: Text('Tab 3 Content')),
+                        Center(child: Text('Tab 4 Content')),
+                        Center(child: Text('Tab 5 Content')),
+                      ],
+                    ),
                   ),
-                  Text(
-                      'Create simple contracts with your non-Upwork clients, \nprotected in Escrow, leading to quick payment. Create and \nview your Dirct Contracts'),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

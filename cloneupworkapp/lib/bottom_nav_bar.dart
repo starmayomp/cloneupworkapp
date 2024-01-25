@@ -36,22 +36,33 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: _screens[selected],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green,
+        selectedItemColor: const Color.fromARGB(255, 77, 165, 47),
         unselectedItemColor: Colors.black,
         backgroundColor: Colors.white,
-        elevation: 0,
+        elevation: 3,
         currentIndex: selected,
         onTap: barnavigation,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Jobs'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.edit_note_outlined), label: 'Proposals'),
+            icon: Icon(Icons.search),
+            label: 'Jobs',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.newspaper), label: 'Contracts'),
+            icon: Icon(Icons.edit_note_outlined),
+            label: 'Proposals',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.message_outlined), label: 'Messages'),
+            icon: Icon(Icons.newspaper),
+            label: 'Contracts',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_none_outlined), label: 'Alerts'),
+            icon: Icon(Icons.message_outlined),
+            label: 'Messages',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_none_outlined),
+            label: 'Alerts',
+          ),
         ],
       ),
     );
